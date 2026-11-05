@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}</style>
+<title>Para o Gerson</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gluten:wght@500;700;800&family=Caveat:wght@500;700&family=Nunito:wght@400;600;700&display=swap">
+<style>
+/* Layout: a jar of honey for "o meu meloso" — honey drips from the top, notes stick to the page like little papers, one pot hands out reasons. */
+:root {
+  --bg: #FFF3D2;
+  --surface: #FFFBEE;
+  --ink: #3A2210;
+  --muted: #7B5A38;
+  --honey: #E9A31B;
+  --honey-deep: #B9700A;
+  --rose: #D23E5A;
+  --line: rgba(185, 112, 10, .28);
+  --display: "Gluten", "Comic Sans MS", "Trebuchet MS", cursive;
+  --hand: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+  --body: "Nunito", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1B1209; --surface: #2A1C0F; --ink: #FBE8C2; --muted: #CDAA7C;
+    --honey: #F2B437; --honey-deep: #F5C25A; --rose: #FF7C90; --line: rgba(242, 180, 55, .28);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1B1209; --surface: #2A1C0F; --ink: #FBE8C2; --muted: #CDAA7C;
+  --honey: #F2B437; --honey-deep: #F5C25A; --rose: #FF7C90; --line: rgba(242, 180, 55, .28);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background-color: var(--bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cpath d='M28 66L0 50V17L28 1l28 16v33L28 66zm0 31L0 81M28 97l28-16M28 66v31' fill='none' stroke='%23E9A31B' stroke-opacity='.13' stroke-width='1.5'/%3E%3C/svg%3E");
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.drip { display: block; width: 100%; height: clamp(46px, 9vw, 80px); }
+.drip path { fill: var(--honey); }
+
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+  padding-block: 8px 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+}
+
+/* Hero */
+.hero { display: flex; flex-direction: column; gap: 10px; padding-top: 12px; }
+.hello { font-family: var(--hand); font-size: 1.7rem; color: var(--muted); margin: 0; }
+.name {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(4.2rem, 21vw, 7.5rem);
+  line-height: .9;
+  margin: 0;
+  color: var(--honey-deep);
+  letter-spacing: -.01em;
+}
+.name .comma { color: var(--rose); }
+.nick {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(1.4rem, 5.5vw, 1.9rem);
+  margin: 6px 0 0;
+  text-wrap: balance;
+}
+.nick em { font-style: normal; color: var(--rose); }
+.lead { margin: 10px 0 0; color: var(--muted); max-width: 34ch; }
+
+/* Section heads */
+.eyebrow {
+  font-family: var(--body); font-weight: 700; font-size: .78rem;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--honey-deep);
+  margin: 0 0 6px;
+}
+h2 {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(1.7rem, 6.5vw, 2.3rem); line-height: 1.1;
+  margin: 0 0 24px; text-wrap: balance;
+}
+
+/* Notes */
+.notes { display: grid; gap: 18px; list-style: none; padding: 0; margin: 0; }
+.note {
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: 6px 18px 8px 16px;
+  padding: 18px 20px 18px 54px;
+  position: relative;
+  font-family: var(--hand);
+  font-size: clamp(1.45rem, 5.6vw, 1.7rem);
+  line-height: 1.25;
+  transform: rotate(-.8deg);
+  box-shadow: 0 6px 0 -2px var(--line);
+}
+.note:nth-child(even) { transform: rotate(.9deg); margin-left: 14px; }
+.note:nth-child(3n) { margin-right: 10px; }
+.note::before {
+  content: "";
+  position: absolute; left: 18px; top: 22px;
+  width: 22px; height: 25px;
+  background: var(--honey);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+.note small { display: block; font-family: var(--body); font-size: .9rem; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+
+/* Letter */
+.letter {
+  background: var(--surface);
+  border-radius: 22px;
+  padding: 28px 24px 30px;
+  border: 1.5px solid var(--line);
+}
+.letter p { margin: 0 0 14px; max-width: 60ch; }
+.letter p:last-child { margin: 0; }
+.letter .sign { font-family: var(--hand); font-size: 1.6rem; color: var(--rose); margin-top: 18px; }
+
+/* Jar */
+.jarbox { display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: center; }
+@media (max-width: 460px) { .jarbox { grid-template-columns: 1fr; justify-items: start; } }
+.jar { width: 128px; height: auto; flex: none; }
+.jar .glass { fill: var(--surface); stroke: var(--honey-deep); stroke-width: 3; }
+.jar .honey { fill: var(--honey); }
+.jar .lid { fill: var(--rose); }
+.jar .tag { fill: var(--surface); stroke: var(--honey-deep); stroke-width: 2; }
+.jar .tagtext { fill: var(--honey-deep); font-family: var(--hand); font-size: 17px; font-weight: 700; }
+.jar.wiggle { animation: wiggle .5s ease; }
+@keyframes wiggle { 25% { transform: rotate(-6deg); } 60% { transform: rotate(5deg); } }
+
+.reason-wrap { min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+.reason {
+  font-family: var(--hand); font-size: clamp(1.6rem, 6.4vw, 2rem); line-height: 1.2;
+  margin: 0; min-height: 2.5em; transition: opacity .25s ease;
+}
+.reason.fade { opacity: 0; }
+.count { font-size: .85rem; color: var(--muted); margin: 0; font-variant-numeric: tabular-nums; }
+.btn {
+  font-family: var(--display); font-weight: 700; font-size: 1.1rem;
+  background: var(--honey); color: #3A2210;
+  border: none; border-radius: 999px; padding: 12px 22px;
+  cursor: pointer; box-shadow: 0 4px 0 var(--honey-deep);
+  transition: transform .1s ease, box-shadow .1s ease;
+  align-self: flex-start;
+}
+.btn:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--honey-deep); }
+.btn:focus-visible { outline: 3px solid var(--rose); outline-offset: 3px; }
+
+/* Ending */
+.ending { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.ending .big {
+  font-family: var(--display); font-weight: 800;
+  font-size: clamp(2.2rem, 9.5vw, 3.6rem); line-height: 1.02; margin: 0;
+  color: var(--honey-deep); text-wrap: balance;
+}
+.ending .big span { color: var(--rose); }
+.ending p { margin: 0; color: var(--muted); max-width: 36ch; }
+.ending .sig { font-family: var(--hand); font-size: 1.7rem; line-height: 1.15; color: var(--ink); margin-top: 8px; }
+.ending .sig strong { font-family: var(--display); font-weight: 700; font-size: 2.2rem; color: var(--rose); }
+.heart { width: 54px; height: 54px; }
+.heart path { fill: var(--rose); }
+.heart { animation: beat 1.4s ease-in-out infinite; }
+@keyframes beat { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.14); } 30% { transform: scale(1); } 45% { transform: scale(1.1); } }
+
+/* Floating hearts */
+.float {
+  position: fixed; pointer-events: none; z-index: 20;
+  font-size: 1.6rem; color: var(--rose);
+  animation: up 1.6s ease-out forwards;
+}
+@keyframes up {
+  from { transform: translate(0, 0) scale(.6); opacity: 1; }
+  to { transform: translate(var(--dx), -160px) scale(1.2); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heart, .jar.wiggle, .float { animation: none; }
+  .reason { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<svg class="drip" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0,0 H400 V18 C390,18 388,44 378,44 C368,44 368,18 350,18 C330,18 326,30 310,30 C296,30 296,18 270,18 C255,18 254,56 240,56 C226,56 226,18 200,18 C180,18 178,34 165,34 C152,34 152,18 120,18 C105,18 104,48 92,48 C80,48 80,18 60,18 C45,18 44,28 34,28 C24,28 24,18 0,18 Z"/>
+</svg>
+
+<main>
+  <header class="hero">
+    <p class="hello">Isto é só para ti,</p>
+    <h1 class="name">Gerson<span class="comma">,</span></h1>
+    <p class="nick">meu amor, <em>meu meloso</em>, meu melhor amigo.</p>
+    <p class="lead">Fiz este cantinho para te dizer, com calma, tudo o que às vezes não consigo dizer. Lê devagar.</p>
+  </header>
+
+  <section aria-labelledby="t-saber">
+    <p class="eyebrow">Coisas que quero que saibas</p>
+    <h2 id="t-saber">Tu és o meu lugar preferido no mundo</h2>
+    <ul class="notes">
+      <li class="note">És o meu melhor amigo. A primeira pessoa a quem eu quero contar tudo.</li>
+      <li class="note">És o meu familiar mais próximo. kkk
+        <small>Eu digo isto a brincar, mas é verdade. Tu és a minha família.</small></li>
+      <li class="note">Sou feliz sempre que estou ao teu lado. Sempre.</li>
+      <li class="note">Mesmo nos dias em que não mostro bem, eu amo-te muito.</li>
+      <li class="note">Quero fazer a vida contigo.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="t-carta">
+    <p class="eyebrow">Uma cartinha</p>
+    <h2 id="t-carta">Eu sei, meu amor</h2>
+    <div class="letter">
+      <p>Eu sei que nem sempre me comporto da melhor forma. Sei que às vezes não te trato como tu mereces, e mesmo assim tu continuas aqui, com paciência e carinho.</p>
+      <p>Não penses que eu não vejo. Eu vejo tudo. E agradeço por cada vez que ficaste, por cada vez que me compreendeste quando eu nem me compreendia.</p>
+      <p>Quero ser melhor para ti todos os dias. Não porque me pedes, mas porque tu mereces o melhor de mim.</p>
+      <p class="sign">Desculpa, e obrigada. Amo-te.<br>Idelaine</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-pote">
+    <p class="eyebrow">O pote do meloso</p>
+    <h2 id="t-pote">Motivos para eu te amar</h2>
+    <div class="jarbox">
+      <svg class="jar" id="jar" viewBox="0 0 120 150" aria-hidden="true">
+        <rect class="lid" x="26" y="6" width="68" height="20" rx="6"/>
+        <path class="glass" d="M30,26 H90 V36 C104,42 108,56 108,72 V124 C108,136 100,144 88,144 H32 C20,144 12,136 12,124 V72 C12,56 16,42 30,36 Z"/>
+        <path class="honey" d="M15,86 C30,80 42,92 60,86 C78,80 90,92 105,86 V124 C105,134 98,141 88,141 H32 C22,141 15,134 15,124 Z"/>
+        <rect class="tag" x="30" y="56" width="60" height="26" rx="5"/>
+        <text class="tagtext" x="60" y="75" text-anchor="middle">Gerson</text>
+      </svg>
+      <div class="reason-wrap">
+        <p class="reason" id="reason" aria-live="polite">Porque a vida é mais doce contigo.</p>
+        <p class="count" id="count">Motivo 1 de 14</p>
+        <button class="btn" id="more" type="button">Tirar outro motivo</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="ending" aria-labelledby="t-fim">
+    <svg class="heart" viewBox="0 0 32 29" aria-hidden="true"><path d="M16 29 2.6 15.6A8.2 8.2 0 0 1 14.2 4L16 5.8 17.8 4a8.2 8.2 0 0 1 11.6 11.6Z"/></svg>
+    <h2 class="big" id="t-fim">Quero fazer a vida contigo, <span>Gerson</span>.</h2>
+    <p>Hoje, amanhã e em todos os dias que vierem. Com todo o meu amor,</p>
+    <p class="sig">da tua namorada,<br><strong>Idelaine</strong></p>
+  </section>
+</main>
+
+<script>
+(function () {
+  var reasons = [
+    "Porque a vida é mais doce contigo.",
+    "Porque me fazes rir até nos dias maus.",
+    "Porque contigo eu posso ser eu mesma.",
+    "Porque és paciente comigo, mesmo quando eu não facilito.",
+    "Porque o teu abraço é o meu lugar preferido.",
+    "Porque és o meu meloso, e meloso igual a ti não há.",
+    "Porque quando penso no futuro, tu estás lá.",
+    "Porque és o meu melhor amigo e o meu amor ao mesmo tempo.",
+    "Porque és a família que eu escolhi.",
+    "Porque nunca desistes de mim.",
+    "Porque o teu sorriso arruma o meu dia.",
+    "Porque quero envelhecer ao teu lado.",
+    "Porque ao teu lado eu sou feliz. Sempre.",
+    "Porque és tu. E isso já chega."
+  ];
+  var order = [0];
+  var rest = reasons.map(function (_, i) { return i; }).slice(1);
+  for (var i = rest.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = rest[i]; rest[i] = rest[j]; rest[j] = t;
+  }
+  order = order.concat(rest);
+
+  var pos = 0;
+  var el = document.getElementById("reason");
+  var count = document.getElementById("count");
+  var jar = document.getElementById("jar");
+  var btn = document.getElementById("more");
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function hearts(x, y) {
+    if (reduce) return;
+    for (var k = 0; k < 6; k++) {
+      var h = document.createElement("span");
+      h.className = "float";
+      h.textContent = "♥";
+      h.style.left = (x + (Math.random() * 40 - 20)) + "px";
+      h.style.top = (y - 10) + "px";
+      h.style.setProperty("--dx", (Math.random() * 120 - 60) + "px");
+      h.style.animationDelay = (k * 0.08) + "s";
+      document.body.appendChild(h);
+      setTimeout(function (n) { return function () { n.remove(); }; }(h), 2200);
+    }
+  }
+
+  btn.addEventListener("click", function (e) {
+    pos = (pos + 1) % order.length;
+    var r = btn.getBoundingClientRect();
+    hearts(r.left + r.width / 2, r.top);
+    jar.classList.remove("wiggle"); void jar.getBoundingClientRect(); jar.classList.add("wiggle");
+    el.classList.add("fade");
+    setTimeout(function () {
+      el.textContent = reasons[order[pos]];
+      count.textContent = "Motivo " + (pos + 1) + " de " + reasons.length;
+      btn.textContent = pos === order.length - 1 ? "Começar de novo" : "Tirar outro motivo";
+      el.classList.remove("fade");
+    }, reduce ? 0 : 220);
+  });
+})();
+</script>
+
+</body>
+</html>
